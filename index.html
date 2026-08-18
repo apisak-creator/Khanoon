@@ -128,9 +128,10 @@
           arLabel.setAttribute('value', 'MOTOR M1\nSTATUS: WARNING');
           statusButton.textContent = 'เปลี่ยนเป็นปกติ';
         } else {
-          motorBody.setAttribute('color', '#1976d2');
-          warningLamp.setAttribute('color', '#00e676');
-          warningLamp.setAttribute('material', 'emissive', '#00c853');
+          // แก้ไขสีสำหรับสถานะ Normal ตรงนี้ (สีทองและสีชมพู)
+          motorBody.setAttribute('color', '#FFD700'); 
+          warningLamp.setAttribute('color', '#FF69B4');
+          warningLamp.setAttribute('material', 'emissive', '#FF69B4');
           arLabel.setAttribute('value', 'MOTOR M1\nSTATUS: NORMAL');
           statusButton.textContent = 'จำลองคำเตือน';
         }
@@ -180,6 +181,7 @@
       <a-box position="0.42 0.15 0" width="0.18" height="0.18" depth="0.55" color="#263238"></a-box>
 
       <!-- Motor housing: cylinder lies along X axis -->
+      <!-- แก้ไขสีเริ่มต้นเป็นสีทอง (#FFD700) -->
       <a-cylinder
         id="motor-body"
         position="0 0.47 0"
@@ -187,7 +189,7 @@
         radius="0.32"
         height="0.72"
         segments-radial="32"
-        color="#1976d2"
+        color="#FFD700" 
         metalness="0.25"
         roughness="0.55"
       ></a-cylinder>
@@ -217,12 +219,13 @@
       </a-entity>
 
       <!-- Status lamp -->
+      <!-- แก้ไขสีเริ่มต้นเป็นสีชมพู (#FF69B4) -->
       <a-sphere
         id="warning-lamp"
         position="0 0.87 0"
         radius="0.075"
-        color="#00e676"
-        material="emissive: #00c853; emissiveIntensity: 0.8"
+        color="#FF69B4"
+        material="emissive: #FF69B4; emissiveIntensity: 0.8"
       ></a-sphere>
 
       <!-- AR information label -->
