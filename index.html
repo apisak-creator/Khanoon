@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>AR.js - 3 Objects Orbiting Hiro Marker</title>
+    <title>AR.js - 5 Buffaloes Orbiting Hiro Marker</title>
     <!-- นำเข้า A-Frame -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <!-- นำเข้า AR.js -->
@@ -10,31 +10,44 @@
   </head>
 
   <body style="margin: 0; overflow: hidden;">
-    <!-- สร้าง Scene ของ AR.js -->
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
       
+      <!-- ส่วนโหลดโมเดล 3 มิติ (โหลดครั้งเดียว ใช้ได้หลายรอบ) -->
+      <a-assets>
+        <!-- นำไฟล์โมเดลควาย (เช่น buffalo.glb) มาวางไว้ในโฟลเดอร์เดียวกับไฟล์ HTML นี้ -->
+        <a-asset-item id="buffalo" src="buffalo.glb"></a-asset-item>
+      </a-assets>
+
       <!-- ตั้งค่า Marker เป็น HIRO -->
       <a-marker preset="hiro">
         
-        <!-- ศูนย์กลางการหมุน (Pivot): ใช้ Animation หมุนแกน Y (0 ถึง 360 องศา) แบบวนลูป -->
-        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear">
+        <!-- ศูนย์กลางการหมุน: ใช้ Animation หมุนแกน Y 360 องศา วนลูป ใช้เวลา 5 วินาทีต่อรอบ -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
           
-          <!-- วัตถุชิ้นที่ 1 (สีแดง) -->
-          <!-- หมุนจุดตั้งต้นไปที่ 0 องศา แล้วผลักกล่องออกไปตามแกน X -->
+          <!-- ควายตัวที่ 1 (0 องศา) -->
           <a-entity rotation="0 0 0">
-            <a-box position="1.5 0.5 0" scale="0.5 0.5 0.5" color="red"></a-box>
+            <!-- ผลักตำแหน่งออกไปแกน X 2 หน่วย และหมุนตัวโมเดล 90 องศาเพื่อให้หันหน้าไปตามทิศที่วิ่ง -->
+            <a-entity gltf-model="#buffalo" position="2 0 0" rotation="0 90 0" scale="0.5 0.5 0.5"></a-entity>
           </a-entity>
           
-          <!-- วัตถุชิ้นที่ 2 (สีเขียว) -->
-          <!-- หมุนจุดตั้งต้นไปที่ 120 องศา แล้วผลักกล่องออกไป -->
-          <a-entity rotation="0 120 0">
-            <a-box position="1.5 0.5 0" scale="0.5 0.5 0.5" color="green"></a-box>
+          <!-- ควายตัวที่ 2 (72 องศา) -->
+          <a-entity rotation="0 72 0">
+            <a-entity gltf-model="#buffalo" position="2 0 0" rotation="0 90 0" scale="0.5 0.5 0.5"></a-entity>
           </a-entity>
           
-          <!-- วัตถุชิ้นที่ 3 (สีน้ำเงิน) -->
-          <!-- หมุนจุดตั้งต้นไปที่ 240 องศา แล้วผลักกล่องออกไป -->
-          <a-entity rotation="0 240 0">
-            <a-box position="1.5 0.5 0" scale="0.5 0.5 0.5" color="blue"></a-box>
+          <!-- ควายตัวที่ 3 (144 องศา) -->
+          <a-entity rotation="0 144 0">
+            <a-entity gltf-model="#buffalo" position="2 0 0" rotation="0 90 0" scale="0.5 0.5 0.5"></a-entity>
+          </a-entity>
+
+          <!-- ควายตัวที่ 4 (216 องศา) -->
+          <a-entity rotation="0 216 0">
+            <a-entity gltf-model="#buffalo" position="2 0 0" rotation="0 90 0" scale="0.5 0.5 0.5"></a-entity>
+          </a-entity>
+
+          <!-- ควายตัวที่ 5 (288 องศา) -->
+          <a-entity rotation="0 288 0">
+            <a-entity gltf-model="#buffalo" position="2 0 0" rotation="0 90 0" scale="0.5 0.5 0.5"></a-entity>
           </a-entity>
 
         </a-entity>
